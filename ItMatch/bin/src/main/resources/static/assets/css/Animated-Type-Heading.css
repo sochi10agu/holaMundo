@@ -1,0 +1,86 @@
+.cd-words-wrapper {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  font-size: 70px;
+}
+
+.cd-words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+}
+
+.blc {
+  font-size: 70px;
+}
+
+.cd-words-wrapper b.is-visible {
+  position: relative;
+}
+
+.cd-headline.clip span {
+  display: inline-block;
+  padding: .2em 0;
+}
+
+.cd-headline.clip .cd-words-wrapper {
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.cd-headline.clip b {
+  opacity: 0;
+}
+
+.cd-headline b.is-visible {
+  opacity: 1;
+  font-weight: 900;
+}
+
+#register1 {
+  background: url("../../assets/img/modernoffice1.jpg");
+  background-size: cover;
+}
+
+#register2 {
+  background: url("../../assets/img/edificiossss.jpg");
+  background-size: cover;
+}
+
+#footer1 {
+}
+
+#icono1 {
+  font-size: 70px;
+}
+
+#registro3 {
+  background: url("../../assets/img/Apple_laptop_notebook_office-Brand_HD_Wallpaper_2560x1600.jpg");
+  background-size: cover;
+}
+
+#botonCrear {
+  background-color: #1976d2;
+}
+
+#botonCrear:hover {
+  background-color: #42a5f5;
+}
+
+#botonIngresar {
+  background-color: #313437;
+  display: block;
+  width: 100px;
+  height: 45px;
+  text-align: center;
+  border-radius: 45%;
+}
+
+#botonIngresar:hover {
+  background-color: #64b5f6;
+  color: #000814;
+}
+

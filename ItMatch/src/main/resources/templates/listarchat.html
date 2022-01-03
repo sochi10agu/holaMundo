@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body style="padding-top:70px">
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+
+			</div>
+			<div class="col-md-auto " style="min-width: 50%;" id="chat">
+				<script>
+					window.onload(scroll())
+					function scroll() {
+						var div = document.getElementById("chat1")
+						div.scrollTop = div.scrollHeight - div.clientHeight;
+					};
+				</script>
+				<div class="list-group align-self-center"
+					style="width: 100%;max-height: 400px;margin-bottom: -4px;overflow:scroll;-webkit-overflow-scrolling: touch;background-color: bisque;"
+					id="chat1">
+					<li th:each="mensaje,status : ${mensajes}" class="list-group-item" th:style="${(mensaje.Tipo == tipologeado ? 'background-color:powderblue;align-self:end ;' : 'background-color: lightsteelblue;align-self: flex-start;')
+					+'max-width: 75%; border-radius: 25px 10px;min-width: inherit;'}">
+						<div>
+							<small th:text="${#strings.capitalize(mensaje.nombre)}+':'"></small>
+					</div>
+					<div style="clear: both;">
+						<p class="text-break" th:utext="${mensaje.mensaje_enviado}"
+							style="font-size: 0.8rem;margin: 0px 0 0.2rem 0;color: #777;"></p>
+					</div>
+					<div>
+						<span class="time-left" th:text="${#calendars.format(mensaje.fecha_envio, 'dd/MMM/yyyy HH:mm')}" style="font-size: 0.7rem;cursor: default;float: right;color: #999;"></span>
+					</div>
+				</li>
+			</div>
+			</div>
+			<div class="col">
+			           <img class="avatar-bg center" th:if="${destinatario.foto != null}" th:src="${'/imagen/usuario/' + destinatario.id}" alt="">
+                      	<div th:if="${destinatario.foto == null}" class="avatar-bg center"></div>
+                      	<div>
+                      		<p th:text="${destinatario.nombre}"></p>
+                      	</div>	
+			</div>
+		</div>						
+		<div class="row">
+			<div class="col">
+			</div>
+			<div class="col-md-auto " style="min-width: 50%;">
+				<form method="POST" th:action="@{/chat/enviarmensaje}" id="formulario">	
+					<label for="mensajeenviado">Nuevo mensaje</label>
+					<div class="input-group">
+					<textarea class="form-control" type="text" id="mensajeenviado" name="mensajeenviado"
+						rows="1" onkeypress="pulsar(event)" ></textarea>
+						<input class="form-control" type="hidden" th:value="${id_emparejado}" id="id_emparejado"
+						name="id_emparejado" />
+					<span class="input-group-btn">
+						<button type="submit" name="submit" value="value" class="btn btn-primary  btn-sm" id="boton">Enviar</button>
+					 </span>
+					 </div>								
+				</form>
+		   </div>
+		   	<div class="col">
+			</div>			
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+	
+	<script>
+		window.setInterval(function () {
+			$("#chat").load("chat/actualizar", $("#id_emparejado").serialize());
+		}, 3000);
+		function scroll() {
+			var div = document.getElementById("chat1")
+			div.scrollTop = div.scrollHeight - div.clientHeight;
+		};
+	</script>
+	<script>
+		window.onload(scroll())
+		function scroll() {
+			var div = document.getElementById("chat1")
+			div.scrollTop = div.scrollHeight - div.clientHeight;
+		};
+	</script>	
+	 <script>
+		function pulsar(e) {
+			if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+				e.preventDefault();
+				var boton = document.getElementById("boton");
+				angular.element(boton).triggerHandler('click');
+			}
+		}
+	</script>
+	
+</body>
+</html>

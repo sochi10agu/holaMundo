@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	<section>
+		<section class="team-boxed">
+			<div class="container">
+				<div class="intro">
+					<p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum
+						nibh erat, pellentesque ut laoreet vitae.</p>
+				</div>
+				<div class="row people">
+					<div th:each="emparejado,status : ${emparejados}" class="col-md-6 col-lg-4 item">
+						<div class="box"><img class="rounded-circle" th:if="${emparejado.postulante.foto == null}" src="assets/img/logogoogle.png">
+                                                    <img class="rounded-circle" th:if="${emparejado.postulante.foto != null}" th:src="${'/imagen/usuario/' + emparejado.postulante.id}">
+							<p class="name">Puesto:</p>
+							<p th:text="${emparejado.nombre_puesto}" class="title"></p>
+							<p class="name">Nombre postulante:</p>
+							<p th:text="${emparejado.nombre_postulante}" class="title"></p>
+							<p class="name">Nombre Empresa</p>
+							<p th:text="${emparejado.nombre_empresa}" class="title"></p>
+							<form sec:authorize="hasRole('ROLE_EMPRESA')" method="POST"
+								th:action="@{/emparejado/emparejarempresa}">
+								<input class="form-control" type="hidden" th:value="${emparejado.id}" id="id_emparejado"
+									name="id_emparejado" />
+								<button th:if="${emparejado.estado_activo!=true}" type="submit" name="submit"
+									value="value" class="btn btn-primary">Like</button>
+							</form>
+							<form sec:authorize="isAuthenticated()" method="POST" th:action="@{/chat/mostrarchat}">
+								<input class="form-control" type="hidden" th:value="${emparejado.id}" id="id_emparejado"
+									name="id_emparejado" />
+								<button th:if="${emparejado.estado_activo}" type="submit" name="submit"
+									value="value" class="btn btn-primary">chat</button>
+							</form>
+							<a href="#"></a><a href="#"></a><a href="#"></a>
+						</div>
+					</div>
+				</div>
+		</section>
+		</div>
+	</section>
+	</section>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

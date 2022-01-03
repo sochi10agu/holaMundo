@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+
+	<div class="row register-form" id="register2">
+		<div class="col-md-8 offset-md-2">
+			<form action="/empresa/registrar" method="POST" class="custom-form">
+				<h1>Ingrese los Datos</h1>
+
+				<p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
+
+				<div class="row form-group">
+					<div class="col-sm-4 text-center label-column"><label class="col-form-label"
+							for="name-input-field">Nombre de la Empresa</label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="nombre" type="text"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 text-center label-column"><label class="col-form-label"
+							for="name-input-field">Actividad</label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="actividad" type="text"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 text-center label-column"><label class="col-form-label"
+							for="email-input-field">Email </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="email" type="email"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 text-center label-column"><label class="col-form-label"
+							for="pawssword-input-field">Password </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="password" type="password">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 text-center label-column"><label class="col-form-label"
+							for="repeat-pawssword-input-field">Repeat Password </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="password1" type="password">
+					</div>
+				</div><button class="btn btn-light submit-button" id="botonCrear" type="submit">Crear Cuenta</button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

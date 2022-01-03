@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+
+	<div class="pagina" style="margin-bottom: 20px;">
+	
+		<section id="portfolio" class="portfolio">
+			<div class="container">
+				
+				<h2   th:if="${mensaje != null}" th:text="${mensaje}" class="text-uppercase text-center" style="margin-top: 100px;"></h2>
+				<hr class="star-dark mb-5" />
+				
+				<div class="row" style=" align-items: center; justify-content: center;">
+					
+					<!-- Postulante -->
+					<div sec:authorize="hasRole('ROLE_POSTULANTE')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+						<a href="/emparejado/listar"> <img class="imag_icono" src="assets/img/gif/Visualizar likes nuevos.gif"/> </a>
+					</div>
+					<div sec:authorize="hasRole('ROLE_POSTULANTE')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+						<a th:href="@{/postulante/modificarPerfil}"> <img class="imag_icono" src="assets/img/gif/Ver mi perfil.gif"/> </a>
+					</div>
+					<!-- Empresa -->
+					<div sec:authorize="hasRole('ROLE_EMPRESA')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+							<a href="/trabajo/crearTrabajo"> <img class="imag_icono" src="assets/img/gif/Crear puesto de trabajo.gif" /> </a>
+					</div>
+					<div sec:authorize="hasRole('ROLE_EMPRESA')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+							<a href="/emparejado/listaractivos"> <img class="imag_icono" src="assets/img/gif/Ver matchs activos.gif" /> </a>
+					</div>
+					<div sec:authorize="hasRole('ROLE_EMPRESA')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+							<a href="/emparejado/listar"> <img class="imag_icono" src="assets/img/gif/Visualizar likes nuevos.gif" /> </a>
+					</div>
+					<div sec:authorize="hasRole('ROLE_EMPRESA')" class="col-md-6 col-lg-4" style="margin-top:20px;">
+							<a th:href="@{/empresa/modificarEmpresa}"> <img class="imag_icono" src="assets/img/gif/Ver mi perfil.gif" /> </a>
+					</div>
+		
+					
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

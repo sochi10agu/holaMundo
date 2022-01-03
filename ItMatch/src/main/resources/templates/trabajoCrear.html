@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	
+	<div class="container" id="registro3">
+		<div class="row register-form">
+			<div class="col-md-8 offset-md-2">
+				<form action="/trabajo/crearTrabajo" method="POST" class="custom-form">
+					<h1>Nuevo Trabajo</h1>
+					<div class="row form-group">
+						<div class="col-sm-4 label-column"><label class="col-form-label"
+								for="name-input-field">Puesto</label></div>
+						<div class="col-sm-6 input-column"><input class="form-control" type="text" name="puesto"></div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-4 label-column"><label class="col-form-label"
+								for="name-input-field">Modalidad</label></div>
+						<div class="col-sm-6 input-column"><input class="form-control" type="text" name="modalidad"></div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-4 label-column"><label class="col-form-label"
+								for="name-input-field">Lenguajes</label></div>
+						<div class="col-sm-6 input-column"><input class="form-control" type="text" name="lenguaje">
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-4 label-column"><label class="col-form-label" 
+								for="name-input-field">País o	Zona</label></div>
+						<div class="col-sm-6 input-column"><input class="form-control" type="text" name="zona"></div>
+					</div><button class="btn btn-light submit-button" id="botonCrear" type="submit">Crear Trabajo</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<section></section>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

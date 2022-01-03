@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Hire me - Brand</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="assets/css/Animated-Type-Heading.css">
+        <link rel="stylesheet" href="assets/css/Articale-List-With-Image-Zoom.css">
+        <link rel="stylesheet" href="assets/css/best-carousel-slide-1.css">
+        <link rel="stylesheet" href="assets/css/best-carousel-slide.css">
+        <link rel="stylesheet" href="assets/css/Bold-BS4-Footer-Simple.css">
+        <link rel="stylesheet" href="assets/css/BS5-Jumbotron-with-background-Image.css">
+        <link rel="stylesheet" href="assets/css/Carousel_Image_Slider-1.css">
+        <link rel="stylesheet" href="assets/css/Carousel_Image_Slider.css">
+        <link rel="stylesheet" href="assets/css/Footer-with-social-media-icons-1.css">
+        <link rel="stylesheet" href="assets/css/Footer-with-social-media-icons.css">
+        <link rel="stylesheet" href="assets/css/Form-Select---Full-Date---Month-Day-Year.css">
+        <link rel="stylesheet" href="assets/css/header-1.css">
+        <link rel="stylesheet" href="assets/css/header-2.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+        <link rel="stylesheet" href="assets/css/LinkedIn-like-Profile-Box.css">
+        <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+        <link rel="stylesheet" href="assets/css/Multi-step-form.css">
+        <link rel="stylesheet" href="assets/css/Pretty-Header.css">
+        <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
+        <link rel="stylesheet" href="assets/css/Profile-Card-Slider---Slick-Slider.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
+        <link rel="stylesheet" href="assets/css/Responsive-Client-Two.css">
+        <link rel="stylesheet" href="assets/css/Separator-with-icon.css">
+        <link rel="stylesheet" href="assets/css/Single-Advisor-Profile.css">
+        <link rel="stylesheet" href="assets/css/Swiper-Slider-Card-For-Blog-Or-Product-1.css">
+        <link rel="stylesheet" href="assets/css/Swiper-Slider-Card-For-Blog-Or-Product.css">
+        <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+        <link rel="stylesheet" href="assets/css/untitled-1.css">
+        <link rel="stylesheet" href="assets/css/untitled.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+		<div class="container"><a class="navbar-brand logo" href="/pagina_inicio">&nbsp; &nbsp; &nbsp;iT
+				Match</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
+					class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+			<p th:if="${mensaje != null}" th:text="${mensaje}" class="nav-item"></p>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a sec:authorize="isAuthenticated()" class="nav-link" href="/trabajo/listarTrabajos">Ver Trabajos</a></li>
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link"
+							href="/trabajo/crearTrabajo">Crear Trabajo</a></li>
+                                        <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link"
+							href="/registro_empresa">Registrar Empresa</a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link"
+							href="/registro_postulante">Registrar Postulante</a></li>
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link"
+							href="/emparejado/listaractivos">Ver Matchs Activos</a></li>
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link"
+							href="/emparejado/listar">Ver Likes Nuevos</a></li>
+					<li sec:authorize="hasRole('ROLE_POSTULANTE')" class="nav-item"><a class="nav-link"
+							href="/emparejado/listar">Ver Likes dados</a></li>
+					<li sec:authorize="hasRole('ROLE_POSTULANTE')" class="nav-item"><a class="nav-link"
+							th:href="@{/postulante/modificarPerfil}">Ver Mi Perfil</a></li>
+                                        <li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link"
+							th:href="@{/empresa/modificarEmpresa}">Ver Mi Perfil</a></li>
+					<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="logout">Logout</a>
+					</li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" id="botonIngresar"
+							href="/login">Ingresar</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+        <main class="page hire-me-page"></main>
+
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+        <form th:action="@{/empresa/modificandoEmpresa}" method="POST" enctype="multipart/form-data" th:object="${empresa}">
+            <div class="row profile-row">
+                <div class="col-md-4 relative">
+                    <div class="avatar">
+                        <img class="avatar-bg center" th:if="${empresa.foto != null}" th:src="${'/imagen/usuario/' + empresa.id}" alt="">
+                        <div th:if="${empresa.foto == null}" class="avatar-bg center"></div>
+                    </div><input class="form-control form-control" type="file" name="logo">
+                </div>
+                <div class="col-md-8">
+                    <h1>Perfil</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Nombre de la Empresa</label><input class="form-control" type="text" name="nombre" th:field="*{nombre}"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Actividad</label><input class="form-control" type="text" name="actividad" th:field="*{actividad}"></div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3"><label class="form-label">Email </label><input readonly class="form-control" type="email" autocomplete="off" required="" name="email" th:field="*{email}"></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">País o Países</label><input class="form-control" type="text" name="pais" autocomplete="off" required="" th:field="*{pais}"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Sitio Web</label><input class="form-control" type="text" name="sitioWeb" th:field="*{sitioWeb}"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="form-label">Sobre Nosotros</label>
+                            <div class="row">
+                                <div class="col"><textarea class="form-control" name="sobreNosotros" th:field="*{sobreNosotros}"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="form-label">Beneficios de nuestra Empresa</label><textarea class="form-control" name="beneficios" th:field="*{beneficios}"></textarea></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar Cambios</button><button class="btn btn-primary form-btn" type="reset">Cancelar</button><button class="btn btn-danger form-btn" type="reset">Eliminar Cuenta</button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <footer id="myFooter" style="padding:0px;">
+            <div class="container-fluid" id="footer1" style="background: #212529;">
+                <div class="row text-center">
+                    <div class="col footer-social" style="background: #212529;"><a class="social-icons" href="#"><i class="fa fa-facebook" id="iconfacebookfooter"></i></a><a class="social-icons" href="#"><i class="fa fa-google-plus"></i></a><a class="social-icons" href="#"><i class="fa fa-twitter"></i></a><a class="social-icons" href="#"><i class="fa fa-linkedin"></i></a></div>
+                    <div class="col-12" style="background: #212529;">
+                        <p class="footer-copyright" style="color: rgb(144,146,146);">© 2021 iT Match ~ Egg Education&nbsp;&nbsp;<a href="#"></a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bs-init.js"></script>
+        <script src="assets/js/Animated-Type-Heading.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="assets/js/Multi-step-form.js"></script>
+        <script src="assets/js/Profile-Card-Slider---Slick-Slider.js"></script>
+        <script src="assets/js/Profile-Edit-Form.js"></script>
+        <script src="assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
+        <script src="assets/js/theme.js"></script>
+    </body>
+
+</html>

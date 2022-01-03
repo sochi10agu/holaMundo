@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+    <section class="portfolio-block skills">
+        <h1 class="text-center">Busca a tu Candidato Ideal</h1>
+        <div></div>
+        <div class="container" id="contenedor1">
+            <div class="heading">
+                <h1 class="text-start text-muted" style="color: var(--bs-blue);text-shadow: 0px 0px 20px var(--bs-gray-900);box-shadow: 0px 0px;">*</h1>
+            </div>
+            <h1 class="display-5 fw-bold"></h1>
+            <div class="row" id="tarjetas">
+                <div class="col-md-4">
+                    <div class="card special-skill-item border-0">
+                        <div class="card-header bg-transparent border-0"><i class="icon ion-person-add" style="filter: brightness(100%) invert(100%) saturate(104%) sepia(100%);"></i></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Candidato Ideal</h3>
+                            <p class="card-text">Aquí podrás cargar todos los datos necesarios para poder hacer match con ese candidato ideal que necesita tu empresa.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card special-skill-item border-0">
+                        <div class="card-header bg-transparent border-0"><i class="icon ion-ios-unlocked" style="filter: invert(100%) saturate(86%) sepia(100%);"></i></div>
+                        <div class="card-body">
+                            <h3 class="card-title"><strong>Sin Sesgos</strong><br></h3>
+                            <p class="card-text">Nuestro algoritmo parte de ser todos iguales , sin distinción de genero , edad y religión.<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card special-skill-item border-0">
+                        <div class="card-header bg-transparent border-0"><i class="icon ion-thumbsup" style="filter: brightness(101%) invert(100%) sepia(100%);"></i></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Aviso Simple</h3>
+                            <p class="card-text">Encontrar un trabajo y un candidato nunca fue tan ágil.<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-center">
+        <h1 class="text-center" style="margin-top: 52px;font-family: Lato, sans-serif;font-weight: 100;">Empresas que Confían en Nosotros</h1>
+        <div class="client-section-2">
+            <div class="container d-flex justify-content-center client-container">
+                <div class="row g-0 d-flex justify-content-center client-row">
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a class="tooltip-top" href="#" data-tooltip="Brand One"><img class="img-fluid client-image-2" src="assets/img/Slice%204.jpg"></a></div>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a href="#" data-tooltip="Brand Two"><img class="img-fluid client-image-2" src="assets/img/Slice%2012.jpg"></a></div>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a href="#" data-tooltip="Brand Three"><img class="img-fluid client-image-2" src="assets/img/Slice%205.jpg"></a></div>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a href="#" data-tooltip="Brand Four"><img class="img-fluid client-image-2" src="assets/img/Slice%2015.jpg"></a></div>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a href="#" data-tooltip="Brand Five"><img class="img-fluid client-image-2" src="assets/img/Slice%201.jpg"></a></div>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+                        <div><a href="#" data-tooltip="Brand Six"><img class="img-fluid client-image-2" src="assets/img/Slice%2010.jpg"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+
+</body>
+
+</html>

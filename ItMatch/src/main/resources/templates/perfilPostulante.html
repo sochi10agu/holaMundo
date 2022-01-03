@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+    <!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	
+        <main class="page" style="min-height: 100%;">
+            <section class="clean-block about-us">
+                <div class="row" style="margin-right: 0px;margin-left: 0px;">
+                    <div class="col text-center">
+                        <h2 class="text-info"></h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 alert-col relative">
+                        <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
+                    </div>
+                </div>
+                <form th:action="@{/postulante/modificandoPerfil}" method="POST" enctype="multipart/form-data" th:object="${postulante}" style="margin-bottom: 15px">
+                    <div class="row profile-row">
+                        <div class="col-md-4 relative">
+                            <div class="avatar">
+                                <img class="avatar-bg center" th:if="${postulante.foto != null}" th:src="${'/imagen/usuario/' + postulante.id}" alt="">
+                        <div th:if="${postulante.foto == null}" class="avatar-bg center"></div>
+                            </div><input class="form-control form-control" type="file" name="foto">
+                        </div>
+                        <div class="col-md-8">
+                            <h1>Mi Perfil</h1>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Nombre</label><input class="form-control" type="text" name="nombre" th:field="*{nombre}"></div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Apellido</label><input class="form-control" type="text" name="apellido" th:field="*{apellido}"></div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3"><label class="form-label">Email </label><input readonly class="form-control" type="email" required="" name="email" th:field="*{email}"></div>
+                            <div class="form-group mb-3"><label class="form-label">Teléfono </label><input class="form-control" type="text" required="" name="telefono" th:field="*{telefono}"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Fecha de Nacimiento</label></div>
+                                    <div class="row">
+                                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required="" th:field="*{fechaNacimiento}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Edad</label><input class="form-control" type="number" name="edad" required="" th:field="*{edad}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">DNI</label><input class="form-control" type="text" name="dni" required="" th:field="*{dni}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Género</label><input class="form-control" type="text" name="genero" required="" th:field="*{genero}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">País</label><input class="form-control" type="text" name="pais" required="" th:field="*{pais}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Dirección</label><input class="form-control" type="text" name="direccion" required="" th:field="*{direccion}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Lenguajes Dominados</label><input class="form-control" type="text" name="lenguaje" required="" th:value="*{perfil.lenguaje}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Seniority</label><input class="form-control" type="text" name="seniority" required="" th:value="*{perfil.seniority}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Idiomas</label><input class="form-control" type="text" name="idioma" required="" th:value="*{perfil.idioma}"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group mb-3"><label class="form-label">Estudios</label><input class="form-control" type="text" name="estudios" required="" th:value="*{perfil.estudios}"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label class="form-label">Algo Sobre Mi</label>
+                                    <div class="row">
+                                        <div class="col"><textarea class="form-control" name="algoSobreMi" th:text="*{perfil.algoSobreMi}"></textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar Cambios</button>
+                                    <!--<button class="btn btn-primary form-btn" type="reset">Cancelar</button><button class="btn btn-danger form-btn" type="reset">Eliminar Cuenta</button></div>-->
+                                </div>
+                            </div>
+                        </div>
+                </form>
+
+            </section>
+        </main>
+        <section>
+            <div></div>
+        </section>
+        
+        <!-- Footer -->
+		<head th:replace="/fragmentos/footer :: footer"></head>
+		<!-- Script -->
+		<head th:replace="/fragmentos/scripts :: scripts"></head>
+    </body>
+
+</html>

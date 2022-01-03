@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	 <h1 class="display-4">Heading</h1>
+	
+	 <video src="assets/img/video/IT MATCH.mp4" autoplay muted loop class="video"></video>
+	
+	<div class="dropdown-divider"></div>
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center">¿Por qué usar iT Match?</h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"><i class="fas fa-sync d-lg-flex justify-content-lg-center" id="icono1"></i></div>
+			<div class="col-md-4"><i class="fa fa-lightbulb-o d-lg-flex justify-content-lg-center" id="icono1"></i>
+			</div>
+			<div class="col-md-4"><i class="fa fa-globe d-lg-flex justify-content-lg-center" id="icono1"></i></div>
+			<div class="col-md-4">
+				<h1 class="text-center">Match</h1>
+			</div>
+			<div class="col-md-4">
+				<h1 class="text-center">Simple</h1>
+			</div>
+			<div class="col-md-4">
+				<h1 class="text-center">Internacional</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p class="text-center">Busca tu empleo ideal. Postúlate a empleos que te gusten y si la Empresa le gusta
+					tu perfil, tus chances de trabajar con ellos aumenta.&nbsp;</p>
+			</div>
+			<div class="col-md-4">
+				<p class="text-center"><br>Fácil de usar, apariencia simple, sencilla, ordenada e intuitiva.<br><br></p>
+			</div>
+			<div class="col-md-4">
+				<p class="text-center"><br>En iT Match para buscar empleo, no sólo va dirigida a buscar oportunidades de
+					trabajo a nivel nacional, llega mucho más allá de nuestras fronteras.<br></p>
+			</div>
+		</div>
+	</div>
+	
+	<section class="text-center">
+		<h1 class="text-center" style="margin-top: 52px;font-family: Lato, sans-serif;font-weight: 100;">Empresas que
+			Confían en Nosotros</h1>
+		<div class="client-section-2">
+			<div class="container d-flex justify-content-center client-container">
+				<div class="row g-0 d-flex justify-content-center client-row">
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a class="tooltip-top" href="#" data-tooltip="Brand One"><img
+									class="img-fluid client-image-2" src="assets/img/Slice%204.png"></a></div>
+					</div>
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a href="#" data-tooltip="Brand Two"><img class="img-fluid client-image-2"
+									src="assets/img/Slice%2012.png"></a></div>
+					</div>
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a href="#" data-tooltip="Brand Three"><img class="img-fluid client-image-2"
+									src="assets/img/Slice%205.png"></a></div>
+					</div>
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a href="#" data-tooltip="Brand Four"><img class="img-fluid client-image-2"
+									src="assets/img/Slice%2015.jpg"></a></div>
+					</div>
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a href="#" data-tooltip="Brand Five"><img class="img-fluid client-image-2"
+									src="assets/img/Slice%201.png"></a></div>
+					</div>
+					<div
+						class="col-6 col-sm-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center align-items-start no-pad-2">
+						<div><a href="#" data-tooltip="Brand Six"><img class="img-fluid client-image-2"
+									src="assets/img/Slice%2010.jpg"></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

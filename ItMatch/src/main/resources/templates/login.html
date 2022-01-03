@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+
+	<section class="login-dark">
+		<form action="/logincheck" method="post">
+			<h2 class="visually-hidden">Login Form</h2>
+			<div class="illustration"><i class="icon ion-monitor"></i></div>
+			 <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
+			<div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+			<div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+			<div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit"
+					style="background: var(--bs-teal);color: var(--bs-white);">Iniciar Sesión</button></div><a
+				class="forgot" href="#">¿Olvidaste tu email o contraseña?</a>
+		</form>
+	</section>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+</body>
+
+</html>

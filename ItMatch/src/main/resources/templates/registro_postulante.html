@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+	<!-- Navbar -->
+	<head th:replace="/fragmentos/navbar :: nav"></head>
+	
+
+	 <div class="row register-form" id="register1">
+		<div class="col-md-8 offset-md-2">
+			<form action="/postulante/crear" method="POST" class="custom-form">
+				<h1>Ingrese los Datos</h1>
+				<span>
+					<p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
+				</span>
+				<div class="row form-group">
+					<div class="col-sm-4 label-column"><label class="col-form-label d-lg-flex justify-content-lg-center"
+							for="name-input-field">Apellido</label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="apellido" type="text"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 label-column"><label class="col-form-label d-lg-flex justify-content-lg-center"
+							for="name-input-field">Nombre</label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="nombre" type="text"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 d-lg-flex justify-content-lg-center label-column"><label class="col-form-label"
+							for="email-input-field">Email </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="email" type="email"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 d-lg-flex justify-content-lg-center label-column"><label
+							class="col-form-label text-center" for="pawssword-input-field">Password </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="contraseña" type="password">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 label-column"><label class="col-form-label text-center"
+							for="repeat-pawssword-input-field">Repetir Password </label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="contraseña1" type="password">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4 d-lg-flex justify-content-lg-center label-column"><label class="col-form-label"
+							for="email-input-field">Teléfono</label></div>
+					<div class="col-sm-6 input-column"><input class="form-control" name="telefono" type="text"></div>
+	
+	
+				</div><button class="btn btn-light submit-button" id="botonCrear" type="submit">Registrarse</button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<head th:replace="/fragmentos/footer :: footer"></head>
+	<!-- Script -->
+	<head th:replace="/fragmentos/scripts :: scripts"></head>
+	
+</body>
+
+</html>

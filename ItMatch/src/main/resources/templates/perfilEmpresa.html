@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head th:replace="/fragmentos/head :: head"></head>
+
+<body>
+		<!-- Navbar -->
+		<head th:replace="/fragmentos/navbar :: nav"></head>
+        <main class="page hire-me-page"></main>
+
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+        <form th:action="@{/empresa/modificandoEmpresa}" method="POST" enctype="multipart/form-data" th:object="${empresa}" style="margin-bottom: 15px">
+            <div class="row profile-row">
+                <div class="col-md-4 relative">
+                    <div class="avatar">
+                        <img class="avatar-bg center" th:if="${empresa.foto != null}" th:src="${'/imagen/usuario/' + empresa.id}" alt="">
+                        <div th:if="${empresa.foto == null}" class="avatar-bg center"></div>
+                    </div><input class="form-control form-control" type="file" name="logo">
+                </div>
+                <div class="col-md-8">
+                    <h1>Perfil</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Nombre de la Empresa</label><input class="form-control" type="text" name="nombre" th:field="*{nombre}"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Actividad</label><input class="form-control" type="text" name="actividad" th:field="*{actividad}"></div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3"><label class="form-label">Email </label><input readonly class="form-control" type="email" autocomplete="off" required="" name="email" th:field="*{email}"></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">País o Países</label><input class="form-control" type="text" name="pais" autocomplete="off" required="" th:field="*{pais}"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Sitio Web</label><input class="form-control" type="text" name="sitioWeb" th:field="*{sitioWeb}"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="form-label">Sobre Nosotros</label>
+                            <div class="row">
+                                <div class="col"><textarea class="form-control" name="sobreNosotros" th:field="*{sobreNosotros}"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="form-label">Beneficios de nuestra Empresa</label><textarea class="form-control" name="beneficios" th:field="*{beneficios}"></textarea></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar Cambios</button><button class="btn btn-primary form-btn" type="reset">Cancelar</button><button class="btn btn-danger form-btn" type="reset">Eliminar Cuenta</button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Footer -->
+		<head th:replace="/fragmentos/footer :: footer"></head>
+		<!-- Script -->
+		<head th:replace="/fragmentos/scripts :: scripts"></head>
+		
+    </body>
+
+</html>

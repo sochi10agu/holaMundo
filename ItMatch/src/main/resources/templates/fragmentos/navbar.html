@@ -1,0 +1,27 @@
+	<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+		<div class="container">
+			<a class="navbar-brand logo" href="/"> &nbsp; &nbsp; &nbsp;iT Match </a>
+			
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<!-- Sin Condicion - Fijo -->
+					<li class="nav-item"><a sec:authorize="isAuthenticated()" class="nav-link" href="/trabajo/listarTrabajos">Ver Trabajos</a></li>
+					<li class="nav-item"><a sec:authorize="!isAuthenticated()" class="nav-link" href="/trabajo/listarTrabajos2">Ver Trabajos</a></li>
+					<!-- Sin Rol -->
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link"href="/registro_empresa">Registrar Empresa</a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/registro_postulante">Registrar Postulante</a></li>
+					<!-- Postulante -->
+					<li sec:authorize="hasRole('ROLE_POSTULANTE')" class="nav-item"><a class="nav-link" href="/emparejado/listar">Ver Likes dados</a></li>
+					<li sec:authorize="hasRole('ROLE_POSTULANTE')" class="nav-item"><a class="nav-link" th:href="@{/postulante/modificarPerfil}">Ver Mi Perfil</a></li>
+					<!-- Empresa -->
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link" href="/trabajo/crearTrabajo">Crear Trabajo</a></li>
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link" href="/emparejado/listaractivos">Ver Matchs Activos</a></li>
+					<li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link" href="/emparejado/listar">Ver Likes Nuevos</a></li>
+                    <li sec:authorize="hasRole('ROLE_EMPRESA')" class="nav-item"><a class="nav-link" th:href="@{/empresa/modificarEmpresa}">Ver Mi Perfil</a></li>  
+					<!-- Login -->
+					<li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" id="botonIngresar" href="/login">Ingresar</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
