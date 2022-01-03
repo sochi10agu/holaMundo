@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Nueva Libreria</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="assets/css/gift-product-long.css">
+        <link rel="stylesheet" href="assets/css/gift-product-small-double.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
+        <link rel="stylesheet" href="assets/css/Ludens-Users---2-Register.css">
+        <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="assets/css/untitled.css">
+    </head>
+
+    <body class="background1">
+        <!-- Navbar -->
+    <head th:replace="/fragments/navbar :: nav"></head>
+    
+        <div  class="gift row gift--double no-border">
+            
+            <div th:each="libro : ${libros}" class="col-12 col-sm-6">
+                <div class="gift__img col-12" style="background-color: #fff9fb;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6"><img th:src="${'/imagen/libro/' + libro.isbn}" max-height="385" alt=""></div>
+                            <div class="col-md-6"><img th:src="${'/imagen/autor/' + libro.autor.id}">
+                                <div class="row">
+                                    <h4 class="gift__name" style="text-align: center" th:text="${libro.autor.nombre}"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gift__rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star fa-star-half-o"></i><i class="fa fa-star fa-star-o"></i><span class="gift__rating-number">921</span></div>
+                </div>
+                <div class="gift__info col-12" style="background-color: #fff9fb;">
+                    <h4 class="gift__name" th:text="${libro.titulo}"></h4>
+                    <div class="gift__details">
+                        <p>TRAMA DEL LIBRO---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                    </div>
+                    <div class="gift__bottom row">
+                        <div class="gift__price-wrap col-12">
+                            <div class="gift__quantity-left"><span>Libros Disponibles: </span><span class="gift__data" th:text="${libro.disponibles}" ></span></div>
+                        </div>
+                        <!--<div class="gift__cta-wrap col-12"><a class="flux_cta gift__cta" target="_blank" href="#">Alquilar</a></div>-->
+                        <form method="post" th:action="@{/libro/alquilar}+'?isbn='+${libro.isbn}">
+                            <button sec:authorize="isAuthenticated()" class="flux_cta gift__cta" type="submit">Alquilar</button>
+                        </form>
+                        <form sec:authorize="hasRole('ROLE_ADMIN')" method="post" th:action="@{/libro/modificar}+'?isbn='+${libro.isbn}">
+                            <button class="flux_cta gift__cta" type="submit">Modificar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+</body>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
+
+</html>

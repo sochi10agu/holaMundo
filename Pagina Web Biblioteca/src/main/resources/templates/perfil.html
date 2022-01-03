@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Nueva Libreria</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="assets/css/gift-product-long.css">
+        <link rel="stylesheet" href="assets/css/gift-product-small-double.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
+        <link rel="stylesheet" href="assets/css/Ludens-Users---2-Register.css">
+        <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="assets/css/untitled.css">
+    </head>
+
+    <body class="background3">
+        <!-- Navbar -->
+	<head th:replace="/fragments/navbar :: nav"></head>
+        <main class="page" style="min-height: 100%;">
+            <section class="clean-block about-us"><!-- Navbar -->
+
+                <form th:action="@{/estudiante/modificarPerfil}" method="POST" enctype="multipart/form-data" th:object="${estudiante}">
+                    <div class="row" style="margin-right: 0px;margin-left: 0px;">
+                        <div class="col text-center">
+                            <h2 class="text-info" th:field="*{apellido} + ', ' + *{nombre}"></h2>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center" style="margin-right: 0px;margin-left: 0px;">
+                        <div class="col-sm-6 col-lg-4" style="padding-right: 0px;padding-left: 0px;">
+                            <div class="card clean-card text-center">
+                                <img class="card-img-top w-100 d-block" th:if="${estudiante.foto != null}" th:src="${'/imagen/usuario/' + estudiante.id}">
+                                <img class="card-img-top w-100 d-block" th:if="${estudiante.foto == null}" src="assets/img/logoComedor/avatar1.jpg">
+                                
+                                <div class="card-body info">
+                                    <div class="row" style="margin-top: -24px;">
+                                        <div class="col-md-12" style="margin-top: 22px;">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Email</strong></p>
+                                                </div>
+                                                <div class="col"><input readonly class="labels" th:field="*{email}"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Apellido</strong></p>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="labels" th:field="*{apellido}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><p class="labels"><strong>Nombre</strong></p>                                                </div>
+                                                <div class="col"><input class="labels" th:field="*{nombre}"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Dni</strong></p>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="labels" th:field="*{dni}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Domicilio</strong></p>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="labels" th:field="*{domicilio}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Teléfono</strong><br></p>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="labels" th:field="*{telefono}">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="labels"><strong>Foto</strong><br></p>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="form-control form-control" type="file" name="foto">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><button type="submit" class="btn btn-success"><i class="fas fa-pencil-alt"></i>&nbsp;Guardar Datos</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/agency.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js"></script>
+        <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js"></script>
+        <script src="assets/js/Profile-Edit-Form.js"></script>
+    </body>
+    
+    <footer th:replace="/fragments/footer :: footer"></footer>
+
+</html>

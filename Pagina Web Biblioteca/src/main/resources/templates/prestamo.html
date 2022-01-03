@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-ar" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Nueva Libreria</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/gift-product-long.css">
+    <link rel="stylesheet" href="assets/css/gift-product-small-double.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---2-Register.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<!-- Navbar -->
+	<head th:replace="/fragments/navbar :: nav"></head>
+<body>
+    <section class="register-photo" style="background-color: transparent;">
+        <div class="form-container" style="margin-top: 40px;">
+            <div class="image-holder" style="background: url(&quot;assets/img/book_coffee.jpg&quot;) left / cover no-repeat;"></div>
+            <form action="/libro/crearPrestamo" method="post" style="height: 525px;">
+                <h2 class="text-center"><strong>Crea un Préstamo</strong>.</h2>
+                <div class="form-group mb-3"><input readonly class="form-control" type="text" name="idLibro" th:value="*{isbn}"></div>
+                <div class="form-group mb-3"><input class="form-control" type="date" name="fechaPrestamo"></div>
+                <div class="form-group mb-3"><input readonly class="form-control" type="text" name="idUsuario" th:value="*{estudiante.id}"></div>
+                
+                
+                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #e7bc91;">Crear Prestamo</button></div><a class="already" href="login.html">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+            </form>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+</body>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
+
+</html>

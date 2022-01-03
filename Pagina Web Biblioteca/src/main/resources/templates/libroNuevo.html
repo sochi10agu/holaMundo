@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Nueva Libreria</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/gift-product-long.css">
+    <link rel="stylesheet" href="assets/css/gift-product-small-double.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---2-Register.css">
+    <link rel="stylesheet" href="assets/css/Ludens-Users---3-Profile.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+	<head th:replace="/fragments/navbar :: nav"></head>
+    <div class="container profile profile-view" id="profile">
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+        <form action="/libro/guardar" method="post" enctype="multipart/form-data">
+            <div class="row profile-row">
+                <div class="col-md-4 relative">
+                    <div class="avatar">
+                        <div class="avatar-bg center"></div>
+                    </div><input class="form-control form-control" type="file" name="caratula">
+                    <div></div>
+                </div>
+                <div class="col-md-8">
+                    <h1>Libro Nuevo</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Título</label><input class="form-control" type="text" name="titulo"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Editorial</label><input class="form-control" type="text" name="editorial"></div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3"><label class="form-label">Autor</label><select class="form-select" name="autor" id="autor" >
+                    <option type="text" th:each= "autor : ${autores}" th:text="${autor.nombre}" th:value="${autor.id}"></option>
+                </select></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Año</label><input class="form-control" type="number" name="año"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3"><label class="form-label">Libros Totales</label><input class="form-control" type="number" name="totales"></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">Guardar</button><button class="btn btn-danger form-btn" type="reset">Cancelar</button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js"></script>
+    <script src="assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+</body>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
+
+</html>

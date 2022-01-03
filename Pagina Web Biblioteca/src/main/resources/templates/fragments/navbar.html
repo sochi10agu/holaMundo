@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+    <div class="container"><a sec:authorize="!isAuthenticated()" class="navbar-brand" href="/">Librería San Lucho</a>
+        <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/inicio">Libreria San Lucho</a>
+        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto text-uppercase">
+                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="#portfolio">Comics</a></li>
+                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/libro/verLibros2">Libros</a></li>
+                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/autor/listar2">Autores</a></li>
+                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="#portfolio">Comics</a></li>
+                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/libro/verLibros">Libros</a></li>
+                <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" href="/autor/listar">Autores</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/autor/listar">Editar Autores</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/libro/crear">Agregar Libro</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/libro/prestamosPendientes">Prestamos Pendientes</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/libro/prestamosFinalizados">Prestamos Finalizados</a></li>
+                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/registro">Registrarse</a></li>
+                <li sec:authorize="!isAuthenticated()" class="nav-item"><a class="nav-link" href="/login">Iniciar Sesion</a></li>
+                
+                
+            </ul>
+            <ul sec:authorize="isAuthenticated()" class="navbar-nav ms-auto text-uppercase">
+                <!-- Avatar -->
+                <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                       <img
+                            th:if="${estudiante.foto != null}" th:src="${'/imagen/usuario/' + estudiante.id}"
+                            class="rounded-circle"
+                            height="35"
+                            alt=""
+                            loading="lazy"
+                            />
+                    <img
+                        
+                            th:if="${estudiante.foto == null}" src="assets/img/avatar.png"
+                            class="rounded-circle"
+                            height="35"
+                            alt=""
+                            loading="lazy"
+                            />
+                    </a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="/libro/misPrestamos">Mis Prestamos</a><a class="dropdown-item" href="/estudiante/perfil">Editar Perfil</a><a class="dropdown-item" href="/logout">Cerrar Sesión</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

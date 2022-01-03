@@ -1,0 +1,30 @@
+.bg-dark {
+  background-color: #5c4535 !important;
+}
+
+#mainNav .navbar-brand {
+  color: #e1bb80;
+  font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #e1bb80;
+}
+
+.container-fluid {
+    margin-top: 150px;
+}
+
+/*#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link2 {
+   font-size: 90%;
+   font-weight: 400;
+   letter-spacing: 1px;
+   font-family: "Monserrat", "Helvetica Neue", Helvetica, Arial,sans-serif;
+   background-color: #e1bb80;
+   color: #5c4535;
+}
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link2:hover {
+   background-color: #fec810;
+   color: #fff;
+}*/
+
